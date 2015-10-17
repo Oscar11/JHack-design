@@ -81,8 +81,8 @@
         }
         i = 0;
         while (i < d) {
-          Coordx[i] = r*Math.cos(Angles[i]) + 500;
-          Coordy[i] = r*Math.sin(Angles[i]) + 500;
+          Coordx[i] = r*Math.cos(Angles[i]) + xv;
+          Coordy[i] = r*Math.sin(Angles[i]) + yv;
           i = i +1;
         }
         var c = document.getElementById("myCanvas");
@@ -120,8 +120,8 @@
         }
         i = 0;
         while (i < d) {
-          Coordx[i] = r*Math.cos(Angles[i]) + xv;
-          Coordy[i] = r*Math.sin(Angles[i]) + yv;
+          Coordx[i] = r*Math.cos(Angles[i]) + 500;
+          Coordy[i] = r*Math.sin(Angles[i]) + 500;
           i = i +1;
         }
         var c = document.getElementById("myCanvas");
