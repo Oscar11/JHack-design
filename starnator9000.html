@@ -13,11 +13,13 @@
       function graph(n) {
         if(n==1){
 
-          var d,s,r;
+          var d,s,r,xv,yv;
 
                 d = Number(document.getElementById("txt1").value);
                 s = Number(document.getElementById("txt2").value);
                 r = Number(document.getElementById("txt3").value);
+                xv = Number(document.getElementById("xvertex").value);
+                yv = 1000-Number(document.getElementById("yvertex").value);
 
           var avalue = 360/d;
           var i = 1;
@@ -81,11 +83,13 @@
           drawline();
         }
         else if (n==2){
-          var d,s,r;
+          var d,s,r,xv,yv;
 
               d = Number(document.getElementById("txt1").value);
               s = Number(document.getElementById("txt2").value);
               r = Number(document.getElementById("txt3").value);
+              xv = Number(document.getElementById("xvertex").value);
+              yv = 1000-Number(document.getElementById("yvertex").value);
 
         var avalue = 360/d;
         var i = 1;
@@ -200,6 +204,9 @@
       </script>
 
         <p>Starnator 9000</p>
+        <br/>Enter (x,y) coordinates for the vertex (leave blank for center):
+        <input type="text" id="xvertex" value="500">
+        <input type="text" id="yvertex" value="500">
         <br/>Enter # points:
         <input type="text" id="txt1" name="5">
         <p>Enter # points each line will skip:
