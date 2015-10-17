@@ -10,82 +10,14 @@
 
       <script>
 
-      function graph(n) {
-        if(n==1){
+      function graph() {
 
-          var d,s,r;
-
-                d = Number(document.getElementById("txt1").value);
-                s = Number(document.getElementById("txt2").value);
-                r = Number(document.getElementById("txt3").value);
-
-          var avalue = 360/d;
-          var i = 1;
-
-          var Angles = [];
-          Angles[0] = 0;
-          var Coordx = [];
-          var Coordy = [];
-
-          while (i < d) {
-            Angles[i] = (Angles[i-1] + avalue);
-
-            i = i +1;
-          }
-
-          i = 0;
-
-          while (i < d) {
-            Angles[i] = (Angles[i] * 3.14159265 / 180);
-            i = i +1;
-          }
-
-          i = 0;
-
-          while (i < d) {
-
-            // Coordx[i] = Math.sqrt((Math.pow(r,2)/(1+Math.pow(Math.tan(Angles[i])))));
-            // Coordy[i] = Math.sqrt((Math.pow(r,2))-(Math.pow(Coordx[i],2)));
-            
-
-            Coordx[i] = r*Math.cos(Angles[i]) + 500;
-            Coordy[i] = r*Math.sin(Angles[i]) + 500;
-
-            i = i +1;
-
-          }
-
-
-
-          var c = document.getElementById("myCanvas");
-          var ctx = c.getContext("2d");
-
-          i = 0;
-
-          function drawline(){
-
-          ctx.beginPath();
-          ctx.moveTo(Coordx[i],Coordy[i]);
-          ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
-
-          ctx.strokeStyle=document.getElementById("myColor").value;
-          ctx.stroke();
-
-
-          i=i+1;
-          if(1 < d){
-            setTimeout(drawline, 50)
-          }
-
-        }
-          drawline();
-        }
-        else{
-          var d,s,r;
-
-              d = 10000;
-              s = 5000;
-              r = 500;
+        var d,s,r,xv,yv;
+              d = Number(document.getElementById("txt1").value);
+              s = Number(document.getElementById("txt2").value);
+              r = Number(document.getElementById("txt3").value);
+              xv = Number(document.getElementById("xvertex").value);
+              yv = 1000-Number(document.getElementById("yvertex").value);
 
         var avalue = 360/d;
         var i = 1;
@@ -111,8 +43,14 @@
         i = 0;
 
         while (i < d) {
-          Coordx[i] = r*Math.cos(Angles[i]) + 500;
-          Coordy[i] = r*Math.sin(Angles[i]) + 500;
+
+          // Coordx[i] = Math.sqrt((Math.pow(r,2)/(1+Math.pow(Math.tan(Angles[i])))));
+          // Coordy[i] = Math.sqrt((Math.pow(r,2))-(Math.pow(Coordx[i],2)));
+          
+
+          Coordx[i] = r*Math.cos(Angles[i]) + xv;
+          Coordy[i] = r*Math.sin(Angles[i]) + yv;
+
           i = i +1;
 
         }
@@ -123,18 +61,36 @@
         var ctx = c.getContext("2d");
 
         i = 0;
+
+        function drawline(){
+
         ctx.beginPath();
-         while (i < d) {
-           ctx.beginPath();
-           ctx.moveTo(Coordx[i],Coordy[i]);
-           ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
+        ctx.moveTo(Coordx[i],Coordy[i]);
+        ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
 
-           ctx.strokeStyle="White";
-          ctx.stroke();
-           i = i + 1;
-         }
+        ctx.strokeStyle=document.getElementById("myColor").value;
+        ctx.stroke();
 
+
+        i=i+1;
+        if(1 < d){
+          setTimeout(drawline, 50)
         }
+
+      }
+
+        // while (i < d) {
+        //   setTimeout(empty(), 1000);
+        //   ctx.beginPath();
+        //   ctx.moveTo(Coordx[i],Coordy[i]);
+        //   ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
+
+        //   ctx.strokeStyle=document.getElementById("myColor").value;
+        //   ctx.stroke();
+        //   i = i + 1;
+        // }
+
+        drawline();
 
 
 
@@ -142,9 +98,22 @@
       }
 
 
+      
+
+
+      function empty(){
+        var a = 1;
+        a = a + 2;
+
+      }
+
+
       </script>
 
         <p>Starnator 9000</p>
+        <br/>Enter (x,y) coordinates for the vertex (leave blank for center):
+        <input type="text" id="xvertex" value="500">
+        <input type="text" id="yvertex" value="500">
         <br/>Enter # points:
         <input type="text" id="txt1" name="5">
         <p>Enter # points each line will skip:
@@ -156,15 +125,13 @@
 
           A color picker: <input type="color" id="myColor">
 
-        <p><button onclick="graph(1)">Draw</button></p>
-        <p id="demo"></p>
+        <p><button onclick="graph()">Try it</button></p>
         
-        <p><button onclick="graph(0)">Clear</button></p>
-        <p id="demo"></p>
 
-        <canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;">
-        </canvas>
         
+        <p id="demo"></p>
+        <canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #d3d3d3;">
+    </canvas>
 
 
     </body>
