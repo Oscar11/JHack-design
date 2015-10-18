@@ -14,7 +14,7 @@
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         if (fl==0) {
-          ctx.rect(0, 0, 1000, 1000);
+          ctx.rect(0, 0, 350, 550);
           ctx.fillStyle = "White";
           ctx.fill();
           fl++;
@@ -25,7 +25,7 @@
           s = Number(document.getElementById("txt2").value);
           r = Number(document.getElementById("txt3").value);
           xv = Number(document.getElementById("xvertex").value);
-          yv = 1000-Number(document.getElementById("yvertex").value);
+          yv = 550-Number(document.getElementById("yvertex").value);
           var avalue = 360/d;
           var i = 1;
           var Angles = [];
@@ -67,7 +67,7 @@
           s = Number(document.getElementById("txt2").value);
           r = Number(document.getElementById("txt3").value);
           xv = Number(document.getElementById("xvertex").value);
-          yv = 1000-Number(document.getElementById("yvertex").value);
+          yv = 550-Number(document.getElementById("yvertex").value);
           var avalue = 360/d;
           var i = 1;
           var Angles = [];
@@ -102,28 +102,24 @@
           }
         }
         else{
-          ctx.rect(0, 0, 1000, 1000);
+          ctx.rect(0, 0, 350, 550);
           ctx.fillStyle = "White";
           ctx.fill();
         }
       }
       </script>
 
-    <table style="width:100%">
-    <tr>
-    <td><canvas id="myCanvas" width="1000" height="1000" style="border:1px solid black;">
-    </canvas> </td>
-    <td><p><h1>The Starnator 9000</h1></p>
+    <p><h1>The Starnator 9000</h1></p>
     <p><h3>A project by: Anton Baumann, Ivan Morales, Aranya Bhattacharjee and Taha Zia</h3></p>
     <br/>Enter (x,y) coordinates for the vertex (leave blank for center):
-    <input type="text" id="xvertex" value="500">
-    <input type="text" id="yvertex" value="500">
+    <br><input type="text" id="xvertex" value="175">
+    <input type="text" id="yvertex" value="275">
     <p>Enter # points:
-    <input type="text" id="txt1" name="5"></p>
+    <br><input type="text" id="txt1" name="5"></p>
     <p>Enter # points each line will skip:
     <input type="text" id="txt2" name="1"></p>
     <p>Enter the radius:
-    <input type="text" id="txt3" name="50"></p>
+    <br><input type="text" id="txt3" name="50"></p>
     <p>Choose a colour:</p>
 
     A color picker: <input type="color" id="myColor">
@@ -136,7 +132,9 @@
         
     <p><button onclick="graph(0)">Clear</button></p>
     <p id="demo"></p></td>
-    </tr>
+
+    <canvas id="myCanvas" width="350" height="550" style="border:1px solid black;">
+    </canvas> 
 
     </body>
 
