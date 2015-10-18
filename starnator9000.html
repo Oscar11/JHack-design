@@ -2,31 +2,30 @@
   <html>
 
     <head>
-    <title>Star creator 9000</title>
+    <title>The Starnator 9000</title>
     </head>
 
-  
-    <body>
-    <body style="background-color:lightgrey">
+      <body>
+      <body style="background-color:lightgrey">
 
-      <script>
-      var fl=0;
-      function graph(n) {
+        <script>
+        var fl=0;
+        function graph(n) {
         var c = document.getElementById("myCanvas");
-          var ctx = c.getContext("2d");
-          if (fl==0) {
-            ctx.rect(0, 0, 1000, 1000);
-            ctx.fillStyle = "White";
-            ctx.fill();
-            fl++;
-          }
-           if(n==1){
-            var d,s,r,xv,yv;
-                d = Number(document.getElementById("txt1").value);
-                s = Number(document.getElementById("txt2").value);
-                r = Number(document.getElementById("txt3").value);
-                xv = Number(document.getElementById("xvertex").value);
-                yv = 1000-Number(document.getElementById("yvertex").value);
+        var ctx = c.getContext("2d");
+        if (fl==0) {
+          ctx.rect(0, 0, 1000, 1000);
+          ctx.fillStyle = "White";
+          ctx.fill();
+          fl++;
+        }
+        if(n==1){
+          var d,s,r,xv,yv;
+          d = Number(document.getElementById("txt1").value);
+          s = Number(document.getElementById("txt2").value);
+          r = Number(document.getElementById("txt3").value);
+          xv = Number(document.getElementById("xvertex").value);
+          yv = 1000-Number(document.getElementById("yvertex").value);
           var avalue = 360/d;
           var i = 1;
           var Angles = [];
@@ -48,7 +47,6 @@
             Coordy[i] = r*Math.sin(Angles[i]) + yv;
             i = i +1;
           }
-          
           i = 0;
           function drawline(){
           ctx.beginPath();
@@ -65,43 +63,43 @@
         }
         else if (n==2){
           var d,s,r,xv,yv;
-              d = Number(document.getElementById("txt1").value);
-              s = Number(document.getElementById("txt2").value);
-              r = Number(document.getElementById("txt3").value);
-              xv = Number(document.getElementById("xvertex").value);
-              yv = 1000-Number(document.getElementById("yvertex").value);
-        var avalue = 360/d;
-        var i = 1;
-        var Angles = [];
-        Angles[0] = 0;
-        var Coordx = [];
-        var Coordy = [];
-        while (i < d) {
-          Angles[i] = (Angles[i-1] + avalue);
-          i = i +1;
-        }
-        i = 0;
-        while (i < d) {
-          Angles[i] = (Angles[i] * 3.14159265 / 180);
-          i = i +1;
-        }
-        i = 0;
-        while (i < d) {
-          Coordx[i] = r*Math.cos(Angles[i]) + xv;
-          Coordy[i] = r*Math.sin(Angles[i]) + yv;
-          i = i +1;
-        }
-        
-        i = 0;
-        ctx.beginPath();
+          d = Number(document.getElementById("txt1").value);
+          s = Number(document.getElementById("txt2").value);
+          r = Number(document.getElementById("txt3").value);
+          xv = Number(document.getElementById("xvertex").value);
+          yv = 1000-Number(document.getElementById("yvertex").value);
+          var avalue = 360/d;
+          var i = 1;
+          var Angles = [];
+          Angles[0] = 0;
+          var Coordx = [];
+          var Coordy = [];
          while (i < d) {
-           ctx.beginPath();
-           ctx.moveTo(Coordx[i],Coordy[i]);
-           ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
-           ctx.strokeStyle=document.getElementById("myColor").value;
-          ctx.stroke();
-           i = i + 1;
-         }
+            Angles[i] = (Angles[i-1] + avalue);
+            i = i +1;
+          }
+          i = 0;
+          while (i < d) {
+            Angles[i] = (Angles[i] * 3.14159265 / 180);
+            i = i +1;
+          }
+          i = 0;
+          while (i < d) {
+            Coordx[i] = r*Math.cos(Angles[i]) + xv;
+            Coordy[i] = r*Math.sin(Angles[i]) + yv;
+            i = i +1;
+          }
+        
+          i = 0;
+          ctx.beginPath();
+          while (i < d) {
+            ctx.beginPath();
+            ctx.moveTo(Coordx[i],Coordy[i]);
+            ctx.lineTo(Coordx[(i+s+1)%d],Coordy[(i+s+1)%d]);
+            ctx.strokeStyle=document.getElementById("myColor").value;
+            ctx.stroke();
+            i = i + 1;
+          }
         }
         else{
           ctx.rect(0, 0, 1000, 1000);
@@ -111,34 +109,34 @@
       }
       </script>
 
-        <p><h1>Starnator 9000</h1></p>
-        <br/>Enter (x,y) coordinates for the vertex (leave blank for center):
-        <input type="text" id="xvertex" value="500">
-        <input type="text" id="yvertex" value="500">
-        <br/>Enter # points:
-        <input type="text" id="txt1" name="5">
-        <p>Enter # points each line will skip:
-        <input type="text" id="txt2" name="1"></p>
-        <p>Enter the radius:
-        <input type="text" id="txt3" name="50"></p>
+    <table style="width:100%">
+    <tr>
+    <td><canvas id="myCanvas" width="1000" height="1000" style="border:1px solid black;">
+    </canvas> </td>
+    <td><p><h1>The Starnator 9000</h1></p>
+    <p><h3>A project by: Anton Baumann, Ivan Morales, Aranya Bhattacharjee and Taha Zia</h3></p>
+    <br/>Enter (x,y) coordinates for the vertex (leave blank for center):
+    <input type="text" id="xvertex" value="500">
+    <input type="text" id="yvertex" value="500">
+    <p>Enter # points:
+    <input type="text" id="txt1" name="5"></p>
+    <p>Enter # points each line will skip:
+    <input type="text" id="txt2" name="1"></p>
+    <p>Enter the radius:
+    <input type="text" id="txt3" name="50"></p>
+    <p>Choose a colour:</p>
 
-        <p>Choose a colour:</p>
+    A color picker: <input type="color" id="myColor">
 
-          A color picker: <input type="color" id="myColor">
-
-        <p><button onclick="graph(1)">Draw animated</button></p>
-        <p id="demo"></p>
+    <p><button onclick="graph(1)">Draw animated</button></p>
+    <p id="demo"></p>
         
-        <p><button onclick="graph(2)">Draw unanimated</button></p>
-        <p id="demo"></p>
+    <p><button onclick="graph(2)">Draw unanimated</button></p>
+    <p id="demo"></p>
         
-        <p><button onclick="graph(0)">Clear</button></p>
-        <p id="demo"></p>
-
-        <canvas id="myCanvas" width="1000" height="1000" style="border:1px solid black;">
-        </canvas>
-        
-
+    <p><button onclick="graph(0)">Clear</button></p>
+    <p id="demo"></p></td>
+    </tr>
 
     </body>
 
